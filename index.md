@@ -1,4 +1,4 @@
-## ![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)姚亚兵 兰州理工大学计算机与通信学院 yaoyabing@lut.edu.cn
+## ![RUNOOB 图标](https://raw.githubusercontent.com/yaoyabing/yaoyabing.github.io/main/pic_title.png)姚亚兵 兰州理工大学计算机与通信学院 yaoyabing@lut.edu.cn
 
 ## Welcome to GitHub Pages 姚亚兵
 
