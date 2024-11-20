@@ -1,10 +1,209 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to My Homepage</title>
+  <meta charset="utf-8"> 
+  <script src="js/vue.global.js"></script>
+  <link href="js/bootstrap.min.css" rel="stylesheet">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </head>
-<body>
-    <h1>Hello, welcome to my GitHub Pages site!</h1>
-    <p>This is my personal homepage.</p>
+
+<body id="app">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container" style="text-align:center;">
+    <div class="row">
+      <div class="span8">
+        <ul class="nav nav-pills">
+          <li v-for="header in headers"><a :href="'#'+header.name" style="color:black"><span :class="'glyphicon glyphicon-'+header.icon" v-html="header.text"></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <div class="container" name="homepage" id="homepage" style="line-height:200%;padding-top:55px;">
+   <div class="row" >
+     <div class="col-md-2" style="text-align:center;">
+       <img width="170" height="250" class="img-thumbnail" src="pic_title.png" />
+       <div style="text-align:center;font: size 18px;"><b>姚 亚 兵</b></div>
+     </div>
+      <div class="col-md-10">
+           <ul>
+             <li><a href="http://www.lut.edu.cn/"  target="_blank">兰州理工大学计算机与通信学院</a>，副教授，硕士研究生导师，<a href="http://www.lzu.edu.cn/"  target="_blank">兰州大学</a>计算机应用技术专业工学博士</li>
+             <li>研究方向：复杂网络与图机器学习； 联系方式：yaoyabing@lut.edu.cn</li>
+             <li>简介：男，1983年7月出生，河南洛阳人，主要研究方向为复杂网络与图机器学习，重点关注面向高阶链路预测问题的网络表示学习理论与方法研究，在Applied Intelligence、Knowledge Based System、Physica A等SCI期刊发表论文20余篇。目前主持1项国家自然科学基金地区项目，1项青年骨干教师出国研修项目，1项甘肃省自然科学基金项目，1项甘肃省高等学校创新基金项目，1项博士科研基金项目，主持完成5项军工横向项目，获软件著作权10余项，2013年取得计算机技术与软件专业技术高级（系统分析师）资格。2019年至今就职于兰州理工大学计算机与通信学院软件工程系，2009年-2018年就职于甘肃省人民检察院检察技术信息处，主要从事面向司法领域的信息智能化软件研发与应用工作，作为骨干参与完成了甘肃省检察机关辅助办案系统、甘肃省行政执法与刑事司法信息共享平台、甘肃省检察机关大数据决策支持平台和全国检察机关统一业务应用软件等平台的研发、应用与推广工作。期间荣立个人二等功1次，被最高人民检察院授予“全国检察技术信息先进个人”称号。</li>
+      </div>
+  </div>
+
+  <div class="container" name="publications" id="publications">
+     <div class="panel panel-default">
+	      <div class="panel-heading">
+	    	<strong>发表论文</strong> <div class="pull-right"><a href="https://scholar.google.com.hk/citations?user=NrNIgkUAAAAJ&hl=zh-CN" target="_blank">Google-Scholar</a> | <a href="https://www.researchgate.net/profile/Yabing-Yao" target="_blank">ResearchGate</a> | <a href="https://github.com/yabingyao?tab=repositories" target="_blank">GitHub</a></div>  
+	      </div>
+      	<div class="panel-body">
+	    	   <ol>
+	    	     <li v-for="publication in publications"> <span v-html="publication.title"></span> <button type="button" v-if="publication.PDF!=''" class="btn btn-default btn-xs"><a :href="publication.PDF" target='_blank'><span class="glyphicon glyphicon-arrow-down"></span>PDF</a> </button> <button type="button" v-if="publication.code!=null" class="btn btn-default btn-xs"><a :href="publication.code" target='_blank'><span class="glyphicon glyphicon-link"></span>CODE</a> </button></li>
+           </ol>
+	      </div>
+    </div>
+  </div>
+
+  <div class="container" name="projects" id="projects">
+     <div class="panel panel-default">
+	      <div class="panel-heading">
+	    	<strong>科研项目</strong> <a href="#homepage">Go Top</a>
+	      </div>
+      	<div class="panel-body">
+	    	  <div class="panel-body">
+	    	    <ol>
+	    	      <li v-for="project in projects"> <span v-html="project.title"></span></li>
+            </ol>
+	        </div>
+	      </div>
+    </div>
+  </div>
+
+  <div class="container" name="courses" id="courses">
+     <div class="panel panel-default">
+	      <div class="panel-heading">
+	    	<strong>讲授课程</strong> <a href="#homepage">Go Top</a>
+	      </div>
+      	<div class="panel-body">
+	    	    <ul>
+              <li v-for="course in courses"><a :href="course.url" target="_blank">{{course.title}}</a>：{{course.grade}}</li>
+	    	    </ul>
+	      </div>
+    </div>
+  </div>
+
+  <div class="container" name="awards" id="awards">
+     <div class="panel panel-default">
+	      <div class="panel-heading">
+	    	<strong>获奖情况</strong> <a href="#homepage">Go Top</a>
+	      </div>
+      	<div class="panel-body">
+	    	    <ul>
+              <li v-for="award in awards">{{award.title}} <span v-if="award.students!=''">，获奖学生:{{award.students}}</span></li>
+	    	    </ul>
+	      </div>
+    </div>
+  </div>
+
+  <div class="container" name="students" id="students">
+     <div class="panel panel-default">
+	      <div class="panel-heading">
+	    	<strong>指导学生</strong> <a href="#homepage">Go Top</a>
+	      </div>
+      	<div class="panel-body">
+	    	   <div class="row">
+               <div v-for="student in students" :title="student.sex+','+student.birthYearMonth +'\n'+ '来自:'+student.fromCity" class="col-md-2" style="text-align:center;margin:0 auto;   float:left;">
+                 <img width="140" height="140" class="img-circle" :src="student.photoUrl">
+                 <div style="text-align:center;">{{student.name}}({{student.type}}) {{student.grade}}级 </br> <span style="font-size:12px">{{student.to}}</span> </div>
+               </div>
+           </div>
+	      </div>
+    </div>
+  </div>
+
+</div>
+
+<a href="https://clustrmaps.com/site/1bsg9" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=4-rELz7JjSkxNSu1VUdtqFwMmp3CEyQx5ifHdCjRx-M&cl=ffffff"></a>
+
 </body>
+
+<script>
+const app = {
+  data() {
+    return {
+      headers:[
+          {text:" 首页",name:"homepage", icon:"home"},
+          {text:" 发表论文",name:"publications", icon:"list"},
+          {text:" 科研项目",name:"projects", icon:"calendar"},
+          {text:" 讲授课程",name:"courses", icon:"film"},
+          {text:" 获奖情况",name:"awards", icon:"th-large"},
+          {text:" 指导学生",name:"students", icon:"th"}
+      ],
+      img:{
+        url:""
+      },
+      publications:publications,
+      courses:courses,
+      projects:projects,
+      awards:awards,
+      students:students
+    }
+  }
+}
+let publications =[
+{title:"<b>Yabing Yao</b>, Yangyang He, Zhentian Huang, Zhipeng Xu, Fan Yang, Jianxin Tang, Kai Gao. <a target='_blank' href='https://doi.org/10.1007/s10489-023-05211-1'><i>Deep non-negative matrix factorization with edge generator for link prediction in complex networks</i></a>. Applied Intelligence, 2023, (online).",code:"https://github.com/yabingyao/EGDNMF4LinkPrediction",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/2023-%5BApplied%20Intelligence%5D-Deep%20non-negative%20matrix%20factorization%20with%20edge%20generator%20for%20link%20prediction%20in%20complex%20networks.pdf"},
+  {title:"<b>Yabing Yao</b>, Tianyu Cheng, Xiaoqiang Li, Yangyang He, Fan Yang, Tongfeng Li, Zeguang Liu, Zhipeng Xu. <a target='_blank' href='https://doi.org/10.1016/j.physa.2022.128428'><i>Link prediction based on the mutual information with high-order clustering structure of nodes in complex networks</i></a>. Physica A: Statistical Mechanics and Its Applications, 2023, 610:128428 (WOS:000976274200001).",code:'https://github.com/yabingyao/MHOC4LinkPrediction.git',PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/2023-%5BPhysica%20A%5D-Link%20prediction%20based%20on%20the%20mutual%20information%20with%20high-order%20clustering%20structure%20of%20nodes%20in%20complex%20networks.pdf"},
+  {title:"Fan Yang, Jingxian Liu, Ruisheng Zhang,<b> Yabing Yao*</b>. <a target='_blank' href='https://doi.org/10.1371/journal.pone.0285563'><i>Diffusion characteristics classification framework for identification of diffusion source in complex networks</i></a>. PLOS ONE, 2023,18(5):e0285563 (WOS:000988890500016).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/2023-%5BPlos%20one%5D-Diffusion%20characteristics%20classification%20framework%20for%20identification%20of%20diffusion%20source%20in%20complex%20networks.pdf"},
+  {title:"Fan Yang*, Chungui Li, Yong Peng, Jingxian Liu, <b>Yabing Yao</b>, Jiayan Wen, Shuhong Yang. <a target='_blank' href='https://doi.org/10.1016/j.physa.2018.09.114'><i>Locating the propagation source in complex networks with observers-based similarity measures and direction-induced search</i></a>. Soft Computing, 2023, 27:16059–16085 (WOS:000988890500016).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/2023-%5BSoft%20Computing%5D-Locating%20the%20propagation%20source%20in%20complex%20networks%20with%20observers-based%20similarity%20measures%20and%20direction-induced%20search.pdf"},
+  {title:"Fuzhong Nian*, Yinuo Qian, and <b>Yabing Yao</b>. <a target='_blank' href='https://doi.org/10.1089/big.2021.0398'><i>Identification of Potential Cooperation Relationships Among Scientists</i></a>. Big Data, 2023, 11(2)::87-104 (WOS:000856165500001).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/2023-%5BBig%20data%5D-Identification%20of%20Potential%20Cooperation%20Relationships%20Among%20Scientists.pdf"},
+  {title:"Tongfeng Li, Ruisheng Zhang*, Bojuan Niu, <b>Yabing Yao</b>, Jun Ma, Jing Jiang, Zhili Zhao. <a target='_blank' href='https://doi.org/10.1093/comjnl/bxac157'><i>Link Prediction Based On Local Structure And Node Information long Local Paths</i></a>. Computer Journal, 2022,12 (WOS:000891546500001).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/2022-%5BComputer%20Journal%5D-Link%20Prediction%20Based%20On%20Local%20Structure%20And%20Node%20Information%20Along%20Local%20Paths.pdf"},
+  {title:"Xuelong Yu, Fuzhong Nian*, <b>Yabing Yao</b> and Li Luo. <a target='_blank' href='https://doi.org/10.1109/TCSS.2021.3073899'><i>Phase Transition in Group Emotion</i></a>. IEEE Transactions on Computational Social Systems, 2021,8(5):1143-1152 (WOS:000702557700011).", PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/%5B2021-TCSS%5DPhase_Transition_in_Group_Emotion.pdf"},
+  {title:"Fan Yang, Shuhong Yang*, Yong Peng, <b>Yabing Yao</b>, Zhiwen Wang, Houjun Li, Jingxian Liu, Ruisheng Zhang, Chungui Li*. <a target='_blank' href='https://doi.org/10.1016/j.knosys.2020.105674'><i>Locating the propagation source in complex networks with a direction-induced search based Gaussian estimator</i></a>. Knowledge-Based Systems, 2020, 195(2) :105674 (WOS:000523561500004).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/%5B2020-KBS%5D-Locating%20the%20propagation%20source%20in%20complex%20networks%20with%20a%20direction-induced%20search%20based%20Gaussian%20estimator.pdf"},
+  {title:"<b>Yabing Yao</b>, Ruisheng Zhang*, Fan Yang, Jianxin Tang, Yongna Yuan, Rongjing Hu.<a target='_blank' href='https://doi.org/10.1016/j.physa.2018.06.051'><i>Link prediction in complex networks based on the interactions among paths</i></a>. Physica A: Statistical Mechanics and Its Applications, 2018, 510: 52~67 (WOS:000442712000005).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/%5B201807-Physica%20a%5D-Link%20prediction%20in%20complex%20networks%20based%20on%20the%20interactions%20among%20paths.pdf"},
+  {title:"<b>Yabing Yao</b>,  Ruisheng Zhang*, Fan Yang, Yongna Yuan, Rongjing Hu, Zhili Zhao. <a target='_blank' href='https://doi.org/10.1142/S012918311750053X'><i>Link prediction based on local weighted paths for complex networks</i></a>. International Journal of Modern Physics C, 2017, 28(04): 1750053 (WOS:000400271700011).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/%5B201708-IJMPC%5DLink%20prediction%20based%20on%20local%20weighted%20paths%20for%20complex%20networks.pdf"},
+  {title:"<b>Yabing Yao</b>, Ruisheng Zhang*, Fan Yang, Yongna Yuan, Qingshuang Sun, Yu Qiu, Rongjing Hu. <a target='_blank' href='https://doi.org/10.1142/S0129183117501017'><i>Link prediction via layer relevance of multiplex networks</i></a>. International Journal of Modern Physics C, 2017, 28(08): 1750101 (WOS:000410524200003).",PDF:"https://gitee.com/rubinyao_admin/rubin/raw/master/papers/%5B201708-IJMPC%5DLink%20prediction%20via%20layer%20relevance%20of%20multiplex%20networks.pdf"}
+]
+
+let courses = [
+  {title:"C++高级程序设计语言", grade:"软件工程专业， 大学一年级， 秋季学期， 32学时（24理论+8上机）",url:"https://mooc1.chaoxing.com/course/221386459.html"},
+  {title:"Oracle大型数据库技术",grade:"软件工程专业， 大学三年级， 春季学期，40学时（32理论+16上机）",url:"https://mooc1.chaoxing.com/course/208934364.html"}
+]
+
+let projects = [
+  {title:"多尺度自适应单纯复形表示学习的高阶链路预测理论与方法研究，国家自然科学基金地区科学基金项目(No.62366030)，2024.01至2027.12，33万，主持，在研."},
+  {title:"面向高阶链路预测的自监督学习方法研究，国家留学基金管理委员会，青年骨干教师出国研修项目(No.202307860005)，2024.09至2025.09，主持."},
+  {title:"基于网络表示学习的高阶链路预测理论与方法研究，甘肃省自然科学基金(No.23JRRA822)，2024.01至2026.12，6万，主持，在研."},
+  {title:"面向多层复杂网络的三元高阶结构链路预测方法研究, 甘肃省高等学校创新基金项目(No.2022A-022)，2022.07至2024.06, 5万元，主持，在研."},
+  {title:"面向复杂网络链路预测的图神经架构搜索理论与方法研究，语言与文化计算教育部重点实验室开放课题项目(No.KFKT202304)，2024.01至2024.12，2万元，主持, 在研."},
+  {title:"基于网络快照特征表示学习的复杂网络传播源定位理论与方法研究，国家自然科学基金地区科学基金项目(No.62062010)，2021.01至2024.12，合作经费7.8万，参与，在研."},
+  {title:"审计XXXXXX系统(三期)，军工横向，2021.01至2022.12，主持, 结项."},
+  {title:"审计XXXXXX系统(二期)，军工横向，2020.09至2021.09，主持，结项."},
+  {title:"审计XXXXXX系统(一期)(JH2020009)，军工横向，2020.05至2020.11，主持，结项."},
+  {title:"审计XXXXXX指引(JH2020010)，军工横向，2020.08至2020.12，主持，结项."},
+  {title:"疫情防控XXXXXX系统(JH2020003)，军工横向，2020.03至2020.06，主持，结项."},
+  {title:"基于图对比学习的二元链路预测方法研究，兰州理工大学博士科研启动基金项目，10万元，主持，在研."},
+  {title:"中医五运六气智能信息化系统，企事业委托开发项目，2020.06至2021.06，198万元，项目骨干，结项."},
+  {title:"甘肃省行政执法与刑事司法信息共享平台，甘肃省人民检察院下达项目，2012.06至2014.7，项目负责人."},
+  {title:"全国检察机关统一业务应用系统，最高人民检察院下达项目，2011.02至2011.9，项目骨干."},
+  {title:"甘肃省检察机关辅助办案系统，甘肃省人民检察院下达项目，2009.07至2012.6，项目骨干."}
+]
+
+let awards = [
+  {title:"2023 ACM-ICPC国际大学生程序设计竞赛丝绸之路中国邀请赛 银奖(4枚)指导教师",students:"沈宇昊、易宇杰、叶刘强；牛立晖、俞成林、卢哲云；颜成华、严子豪、王福银；周妤蔓、任家兴、赖新鹏；"},
+  {title:"2022 兰州理工大学2021-2022学年优秀班主任",students:""},
+  {title:"2021 第十二届蓝桥杯省赛 省级一等奖指导教师",students:"黄振天"},
+  {title:"2021 第十二届蓝桥杯省赛 省级二等奖指导教师",students:"何陈诚"},  
+  {title:"2020 ACM-ICPC西部大学生程序竞赛 金牌指导教师",students:"苟慜、王宇龙、魏际泰"},
+  {title:"2020 ACM-ICPC西部大学生程序竞赛 铜牌指导教师(3项)",students:"王朗江、仁霜徐、鸿斌；张向远、胡一娟、李颖江；陈宝亮、李思、李文浩"},
+  {title:"2020 CCF CCSP 大学生计算机系统与程序设计竞赛西北赛区 铜奖指导教师",students:"马佳林"},
+  {title:"2019 CCF CCSP 大学生计算机系统与程序设计竞赛全国总决赛 铜奖指导教师",students:"翁承煜"}
+]
+
+let defaultPhotoUrl = "default.png"
+
+let students = [
+  {name:"叶荣",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"1999.01",fromCity:"甘肃省平凉市",photoUrl:"photos/23_yerong.jpg"},
+  {name:"刘阳",type:"硕",sex:"女",grade:"2023",to:"在读",birthYearMonth:"1999.08",fromCity:"河南省洛阳市",photoUrl:"photos/23_liuyang.jpg"},
+  {name:"周巍",type:"硕",sex:"女",grade:"2023",to:"在读",birthYearMonth:"1999.04.27",fromCity:"山东省莱阳市",photoUrl:"photos/23_zhouwei.jpg"},
+  {name:"程跃",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"1999.01.27",fromCity:"四川省巴中市",photoUrl:"photos/23_chengyue.jpg"},
+  {name:"周新宇",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"2000.05",fromCity:"山东省东营市",photoUrl:"photos/23_zhoutianyu.jpg"},
+  {name:"毛志恒",type:"硕",sex:"男",grade:"2022",to:"在读",birthYearMonth:"1998.XX",fromCity:"甘肃省金昌市",photoUrl:"photos/22_maozhiheng.jpg"},
+  {name:"郭平霞",type:"硕",sex:"女",grade:"2022",to:"在读",birthYearMonth:"1998.XX",fromCity:"甘肃省陇南市",photoUrl:"photos/22_guopingxia.jpg"},
+  {name:"遆姿玉",type:"硕",sex:"女",grade:"2022",to:"在读",birthYearMonth:"1997.XX",fromCity:"甘肃省武威市",photoUrl:"photos/22_tiziyu.jpg"},
+  {name:"何洋洋",type:"硕",sex:"男",grade:"2021",to:"在读",birthYearMonth:"1997.03",fromCity:"安徽省池州市",photoUrl:"photos/21_heyangyang.png"},
+  {name:"徐志鹏",type:"硕",sex:"男",grade:"2021",to:"在读",birthYearMonth:"1998.11",fromCity:"甘肃省临夏市",photoUrl:"photos/21_xuzhipeng.jpg"},
+  {name:"刘泽光",type:"硕",sex:"男",grade:"2020",to:"青海开放大学",birthYearMonth:"1998.06",fromCity:"甘肃省武威市",photoUrl:"photos/20_liuzeguang.png"},
+  {name:"程天宇",type:"硕",sex:"男",grade:"2020",to:"西北工业大学(攻博)",birthYearMonth:"1997.02",fromCity:"山西省永济市",photoUrl:"photos/20_chengtianyu.png"},
+  {name:"黄振天",type:"本",sex:"男",grade:"2019",to:"清华大学计算机系(直博)",birthYearMonth:"2001.02",fromCity:"山东省菏泽市",photoUrl:"photos/19_huangzhentian.png"},
+  {name:"李小强",type:"硕",sex:"男",grade:"2019",to:"西安大华智联技术有限公司",birthYearMonth:"1995.12",fromCity:"甘肃省天水市",photoUrl:"photos/19_lixiaoqiang.png"}
+]
+
+Vue.createApp(app).mount('#app')
+</script>
+
 </html>
