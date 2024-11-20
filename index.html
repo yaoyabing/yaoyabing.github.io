@@ -100,7 +100,7 @@
 	    	   <div class="row">
                <div v-for="student in students" :title="student.sex+','+student.birthYearMonth +'\n'+ '来自:'+student.fromCity" class="col-md-2" style="text-align:center;margin:0 auto;   float:left;">
                  <img width="140" height="140" class="img-circle" :src="'photos/'+student.photoUrl">
-                 <div style="text-align:center;">{{student.name}}({{student.type}}) {{student.grade}}级 </br> <span style="font-size:12px">{{student.to}}</span> </div>
+                 <div style="text-align:center;"><span style="color:#3677a5">{{student.name}}</span><span style="color:#99999b">({{student.type}}) {{student.grade}}级 </br> <span style="font-size:12px">{{student.to}}</span></span> </div>
                </div>
            </div>
 	      </div>
