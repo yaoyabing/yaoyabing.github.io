@@ -99,7 +99,7 @@
       	<div class="panel-body">
 	    	   <div class="row">
                <div v-for="student in students" :title="student.sex+','+student.birthYearMonth +'\n'+ '来自:'+student.fromCity" class="col-md-2" style="text-align:center;margin:0 auto;   float:left;">
-                 <img width="140" height="140" class="img-circle" :src="student.photoUrl">
+                 <img width="140" height="140" class="img-circle" :src="'photos/'+student.photoUrl">
                  <div style="text-align:center;">{{student.name}}({{student.type}}) {{student.grade}}级 </br> <span style="font-size:12px">{{student.to}}</span> </div>
                </div>
            </div>
@@ -187,25 +187,25 @@ let awards = [
 let defaultPhotoUrl = "default.png"
 
 let students = [
-  {name:"王英仁",type:"硕",sex:"男",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"河南省",photoUrl:""},
-  {name:"陈俊",type:"硕",sex:"男",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"湖南省",photoUrl:""},
-  {name:"曹珍珍",type:"硕",sex:"女",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"河南省",photoUrl:""},
-  {name:"陈英伟",type:"硕",sex:"女",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"山东省",photoUrl:""},
-  {name:"樊筱轩",type:"硕",sex:"女",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"甘肃省天水市",photoUrl:""},
-  {name:"叶荣",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"1999.01",fromCity:"甘肃省平凉市",photoUrl:"photos/23_yerong.jpg"},
-  {name:"刘阳",type:"硕",sex:"女",grade:"2023",to:"在读",birthYearMonth:"1999.08",fromCity:"河南省洛阳市",photoUrl:"photos/23_liuyang.jpg"},
-  {name:"周巍",type:"硕",sex:"女",grade:"2023",to:"在读",birthYearMonth:"1999.04.27",fromCity:"山东省莱阳市",photoUrl:"photos/23_zhouwei.jpg"},
-  {name:"程跃",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"1999.01.27",fromCity:"四川省巴中市",photoUrl:"photos/23_chengyue.jpg"},
-  {name:"周新宇",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"2000.05",fromCity:"山东省东营市",photoUrl:"photos/23_zhoutianyu.jpg"},
-  {name:"毛志恒",type:"硕",sex:"男",grade:"2022",to:"在读",birthYearMonth:"1998.XX",fromCity:"甘肃省金昌市",photoUrl:"photos/22_maozhiheng.jpg"},
-  {name:"郭平霞",type:"硕",sex:"女",grade:"2022",to:"在读",birthYearMonth:"1998.XX",fromCity:"甘肃省陇南市",photoUrl:"photos/22_guopingxia.jpg"},
-  {name:"遆姿玉",type:"硕",sex:"女",grade:"2022",to:"在读",birthYearMonth:"1997.XX",fromCity:"甘肃省武威市",photoUrl:"photos/22_tiziyu.jpg"},
-  {name:"何洋洋",type:"硕",sex:"男",grade:"2021",to:"北京交通大学(攻博)",birthYearMonth:"1997.03",fromCity:"安徽省池州市",photoUrl:"photos/21_heyangyang.png"},
-  {name:"徐志鹏",type:"硕",sex:"男",grade:"2021",to:"甘肃省选调生",birthYearMonth:"1998.11",fromCity:"甘肃省临夏市",photoUrl:"photos/21_xuzhipeng.jpg"},
-  {name:"刘泽光",type:"硕",sex:"男",grade:"2020",to:"青海开放大学",birthYearMonth:"1998.06",fromCity:"甘肃省武威市",photoUrl:"photos/20_liuzeguang.png"},
-  {name:"程天宇",type:"硕",sex:"男",grade:"2020",to:"西北工业大学(攻博)",birthYearMonth:"1997.02",fromCity:"山西省永济市",photoUrl:"photos/20_chengtianyu.png"},
-  {name:"黄振天",type:"本",sex:"男",grade:"2019",to:"清华大学计算机系(直博)",birthYearMonth:"2001.02",fromCity:"山东省菏泽市",photoUrl:"photos/19_huangzhentian.png"},
-  {name:"李小强",type:"硕",sex:"男",grade:"2019",to:"西安大华智联技术有限公司",birthYearMonth:"1995.12",fromCity:"甘肃省天水市",photoUrl:"photos/19_lixiaoqiang.png"}
+  {name:"王英仁",type:"硕",sex:"男",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"河南省",photoUrl:"default_boy.jpg"},
+  {name:"陈俊",type:"硕",sex:"男",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"湖南省",photoUrl:"default_boy.jpg"},
+  {name:"曹珍珍",type:"硕",sex:"女",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"河南省",photoUrl:"default_girl.jpg"},
+  {name:"陈英伟",type:"硕",sex:"女",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"山东省",photoUrl:"default_girl.jpg"},
+  {name:"樊筱轩",type:"硕",sex:"女",grade:"2024",to:"在读",birthYearMonth:"1999.01",fromCity:"甘肃省天水市",photoUrl:"default_girl.jpg"},
+  {name:"叶荣",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"1999.01",fromCity:"甘肃省平凉市",photoUrl:"23_yerong.jpg"},
+  {name:"刘阳",type:"硕",sex:"女",grade:"2023",to:"在读",birthYearMonth:"1999.08",fromCity:"河南省洛阳市",photoUrl:"23_liuyang.jpg"},
+  {name:"周巍",type:"硕",sex:"女",grade:"2023",to:"在读",birthYearMonth:"1999.04.27",fromCity:"山东省莱阳市",photoUrl:"23_zhouwei.jpg"},
+  {name:"程跃",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"1999.01.27",fromCity:"四川省巴中市",photoUrl:"23_chengyue.jpg"},
+  {name:"周新宇",type:"硕",sex:"男",grade:"2023",to:"在读",birthYearMonth:"2000.05",fromCity:"山东省东营市",photoUrl:"23_zhoutianyu.jpg"},
+  {name:"毛志恒",type:"硕",sex:"男",grade:"2022",to:"在读",birthYearMonth:"1998.XX",fromCity:"甘肃省金昌市",photoUrl:"22_maozhiheng.jpg"},
+  {name:"郭平霞",type:"硕",sex:"女",grade:"2022",to:"在读",birthYearMonth:"1998.XX",fromCity:"甘肃省陇南市",photoUrl:"22_guopingxia.jpg"},
+  {name:"遆姿玉",type:"硕",sex:"女",grade:"2022",to:"在读",birthYearMonth:"1997.XX",fromCity:"甘肃省武威市",photoUrl:"22_tiziyu.jpg"},
+  {name:"何洋洋",type:"硕",sex:"男",grade:"2021",to:"北京交通大学(攻博)",birthYearMonth:"1997.03",fromCity:"安徽省池州市",photoUrl:"21_heyangyang.png"},
+  {name:"徐志鹏",type:"硕",sex:"男",grade:"2021",to:"甘肃省选调生",birthYearMonth:"1998.11",fromCity:"甘肃省临夏市",photoUrl:"21_xuzhipeng.jpg"},
+  {name:"刘泽光",type:"硕",sex:"男",grade:"2020",to:"青海开放大学",birthYearMonth:"1998.06",fromCity:"甘肃省武威市",photoUrl:"20_liuzeguang.png"},
+  {name:"程天宇",type:"硕",sex:"男",grade:"2020",to:"西北工业大学(攻博)",birthYearMonth:"1997.02",fromCity:"山西省永济市",photoUrl:"20_chengtianyu.png"},
+  {name:"黄振天",type:"本",sex:"男",grade:"2019",to:"清华大学计算机系(直博)",birthYearMonth:"2001.02",fromCity:"山东省菏泽市",photoUrl:"19_huangzhentian.png"},
+  {name:"李小强",type:"硕",sex:"男",grade:"2019",to:"西安大华智联技术有限公司",birthYearMonth:"1995.12",fromCity:"甘肃省天水市",photoUrl:"19_lixiaoqiang.png"}
 ]
 
 Vue.createApp(app).mount('#app')
